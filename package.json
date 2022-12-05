@@ -4,8 +4,7 @@
   "description": "week 2 code challenge",
   "main": "index.js",
   "scripts": {
-    "test": "npm test",
-    "start": "node.index.js"
+    "start": "json-server --watch ./db.json"
   },
   "repository": {
     "type": "git",
@@ -19,9 +18,5 @@
   "bugs": {
     "url": "https://github.com/Issa92optimus/week2-code-challenge/issues"
   },
-  "homepage": "https://github.com/Issa92optimus/week2-code-challenge#readme",
-  "dependencies": {
-    "light-server": "^2.9.1"
-  },
-  "devDependencies": {}
+  "homepage": "https://github.com/Issa92optimus/week2-code-challenge#readme"
 }

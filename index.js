@@ -1,28 +1,76 @@
-const API_url = "http://localhost:3000/characters"
+document.addEventListener("DOMContentLoaded", () => {
+    getCharacters(characters)
+})
 
-async function getAPI(url) {
-    const response = await fetch(url);
-    var data = await response.json();
-    console.log(data);
-    if (response) {
-        hideloader();
-    }
-    show(data)
-}
+let characterslikes = document.getElementById('characterslikes');
+const characters = [
+    {
+        "id": 1,
+        "name": "Mr. Cute",
+        "image": "https://thumbs.gfycat.com/EquatorialIckyCat-max-1mb.gif",
+        "votes": 0
+      },
+      {
+        "id": 2,
+        "name": "Mx. Monkey",
+        "image": "https://thumbs.gfycat.com/FatalInnocentAmericanshorthair-max-1mb.gif",
+        "votes": 0
+      },
+      {
+        "id": 3,
+        "name": "Ms. Zebra",
+        "image": "https://media2.giphy.com/media/20G9uNqE3K4dRjCppA/source.gif",
+        "votes": 0
+      },
+      {
+        "id": 4,
+        "name": "Dr. Lion",
+        "image": "http://bestanimations.com/Animals/Mammals/Cats/Lions/animated-lion-gif-11.gif",
+        "votes": 0
+      },
+      {
+        "id": 5,
+        "name": "Mme. Panda",
+        "image": "https://media.giphy.com/media/ALalVMOVR8Qw/giphy.gif",
+        "votes": 0
+      }
+    ]
 
-getAPI(API_url);
+const url = "http://localhost:3000/characters"
 
-function hideloader(){
-    document.getElementById('loading').style.display = 'none';
-}
+   function getCharacters(){
+    fetch(url)
+    .then (res => res.json())
+    .then(data => {
+        console.log(data)
+        data.forEach (character => {
+            display(character)
+        })
+    })
+   }
+  function display(characters) {
+    console.log(characters.name);
+    const name = document.createElement('p');
+    name.innerHTML = characters.name
+    const main = document.getElementById("main")
+    main.append(name)
+    name.addEventListener("click", () => {
+          SingleCharacters(characters)
+    })
+  }
+  function SingleCharacters(characters){
+    document.getElementById("id").innerHTML = characters.name
+    document.getElementById("pic").src = characters.image
+    document.getElementById("likes").innerHTML = `likes ${characters.votes}`
+  }
 
-function show(data) {
-    let tab = `<tr><th>id</th><th>name</th><th>image</th><th>vote</th></tr>`
-    
-
-for (r of data) {
-    tab += `<tr><td>${r.id}</td><td>${r.name}</td><td>${r.image}</td><td>${r.votes}</td></tr>`
-}
-
-document.getElementById("cutest animals").innerHTML = tab;
-}
+  let count = 0;
+  document.getElementById("likes").onclick = function(){
+  count+=1;
+  document.getElementById("cnt").innerHTML = count;
+  }
+  
+  document.getElementById("Reset").onclick = function(){
+  count =0;
+  document.getElementById("cnt").innerHTML = count;
+  }
