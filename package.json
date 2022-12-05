@@ -1,0 +1,27 @@
+{
+  "name": "week-2-code-challenge",
+  "version": "1.0.0",
+  "description": "week 2 code challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node.index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Issa92optimus/week2-code-challenge.git"
+  },
+  "keywords": [
+    "challenge"
+  ],
+  "author": "Issa Changawa,Titus Muthoni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Issa92optimus/week2-code-challenge/issues"
+  },
+  "homepage": "https://github.com/Issa92optimus/week2-code-challenge#readme",
+  "dependencies": {
+    "light-server": "^2.9.1"
+  },
+  "devDependencies": {}
+}
