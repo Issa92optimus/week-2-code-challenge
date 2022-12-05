@@ -42,9 +42,17 @@ Use the following steps to run the app.
 - Install required dependencies from npm
 
       npm install
+
 - Run the application
 
       npm start
+
+# Excecuting the challenge
+
+Open on the live server to confirm the challenge is done.Click on the vote button to vote for a respective animal and the reset button to reset the number of votes to 0.
+
+On clicking the name of each animal,the respective image of the animal would be shown. 
+
 
 # Authors
 This project was contributed to by:
