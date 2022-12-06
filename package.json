@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Issa92optimus/week2-code-challenge/issues"
   },
-  "homepage": "https://github.com/Issa92optimus/week2-code-challenge#readme"
+  "homepage": "https://github.com/Issa92optimus/week2-code-challenge#readme",
+  "dependencies": {
+    "json-server": "^0.12.2"
+  }
 }

@@ -36,9 +36,10 @@ const characters = [
       }
     ]
 
-const url = "http://localhost:3000/characters"
+
 
    function getCharacters(){
+    let url = "http://localhost:3000/characters"
     fetch(url)
     .then (res => res.json())
     .then(data => {
