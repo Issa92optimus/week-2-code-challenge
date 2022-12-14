@@ -1,77 +1,60 @@
 document.addEventListener("DOMContentLoaded", () => {
-    getCharacters(characters)
+  console.log("content loaded")
 })
 
-let characterslikes = document.getElementById('characterslikes');
-const characters = [
-    {
-        "id": 1,
-        "name": "Mr. Cute",
-        "image": "https://thumbs.gfycat.com/EquatorialIckyCat-max-1mb.gif",
-        "votes": 0
-      },
-      {
-        "id": 2,
-        "name": "Mx. Monkey",
-        "image": "https://thumbs.gfycat.com/FatalInnocentAmericanshorthair-max-1mb.gif",
-        "votes": 0
-      },
-      {
-        "id": 3,
-        "name": "Ms. Zebra",
-        "image": "https://media2.giphy.com/media/20G9uNqE3K4dRjCppA/source.gif",
-        "votes": 0
-      },
-      {
-        "id": 4,
-        "name": "Dr. Lion",
-        "image": "http://bestanimations.com/Animals/Mammals/Cats/Lions/animated-lion-gif-11.gif",
-        "votes": 0
-      },
-      {
-        "id": 5,
-        "name": "Mme. Panda",
-        "image": "https://media.giphy.com/media/ALalVMOVR8Qw/giphy.gif",
-        "votes": 0
-      }
-    ]
+const charactersname = document.getElementById("id").innerHTML
+const charactersvotes = document.getElementById('characterslikes');
+const charactersimage =  document.getElementById('img')
 
+  const name = document.createElement('p');
 
+function getCharacters(data) {
+  nam.innerHTML = data.name
+  image.src = data.img
 
-   function getCharacters(){
-    let url = "http://localhost:3000/characters"
-    fetch(url)
-    .then (res => res.json())
-    .then(data => {
-        console.log(data)
-        data.forEach (character => {
-            display(character)
+  }
+  fetch("http://localhost:3000/characters/")
+  .then (res => res.json())
+  .then(data => {
+      console.log(data)
+      const main = document.getElementById('main')
+      const details = document.getElementById('animalDetails')
+      const image = document.createElement('img')
+
+      data.forEach (character => {
+          const ul = document.createElement('ul')
+          const li = document.createElement('a')
+          li.innerText = character.name
+          li.href = '#'
+          ul.appendChild(li)
+          main.appendChild(ul)
+
+      
+
+      li.addEventListener('click', () => {
+          image.src = character.image
+          details.appendChild(image)
+
+          const vote = document.createElement('p')
+          vote.innerText = character.votes
+          details.appendChild(vote)
+
+           const btnVotes = document.createElement('button')
+           btnVotes.innerText = 'votes'
+           details.appendChild(btnVotes)
+
+           const btnReset = document.createElement('button')
+           btnReset.innerText = 'reset'
+           details.appendChild(btnReset)
+           
+          btnVotes.addEventListener('click', () => {
+            vote.innerText = `${character.votes += 1}`
+
+          btnReset.addEventListener('click', () => {
+            vote.innerText = `${character.votes = 0}`
+          })
+            
+          })    
         })
-    })
-   }
-  function display(characters) {
-    console.log(characters.name);
-    const name = document.createElement('p');
-    name.innerHTML = characters.name
-    const main = document.getElementById("main")
-    main.append(name)
-    name.addEventListener("click", () => {
-          SingleCharacters(characters)
-    })
-  }
-  function SingleCharacters(characters){
-    document.getElementById("id").innerHTML = characters.name
-    document.getElementById("pic").src = characters.image
-    document.getElementById("likes").innerHTML = `likes ${characters.votes}`
-  }
-
-  let count = 0;
-  document.getElementById("likes").onclick = function(){
-  count+=1;
-  document.getElementById("cnt").innerHTML = count;
-  }
-  
-  document.getElementById("Reset").onclick = function(){
-  count =0;
-  document.getElementById("cnt").innerHTML = count;
-  }
+  })
+})

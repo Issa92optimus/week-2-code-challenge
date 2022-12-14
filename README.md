@@ -39,13 +39,10 @@ git clone git@github.com:Issa92optimus/week-2-code-challenge.git
 
 Use the following steps to run the app.
 
-- Install required dependencies from npm
+- Install required dependencies from npm;
 
-      npm install
+     npm install
 
-- Run the application
-
-      npm start
 
 # Excecuting the challenge
 
